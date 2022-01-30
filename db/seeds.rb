@@ -17,13 +17,13 @@ Bookmark.destroy_all
 end
 
 #categories
-my_animales = Category.create(name: 'Animales', private: false)
+my_anime = Category.create(name: 'Anime', private: false)
 my_peliculas = Category.create(name: 'Peliculas', private: false)
 
-my_animales_mamiferos = Category.create(name: 'Mamiferos', private: false, category_id: my_animales.id)
-my_animales_peces = Category.create(name: 'Peces', private: false, category_id: my_animales.id)
+my_anime_shonen = Category.create(name: 'Shonen', private: false, category_id: my_anime.id)
+my_anime_isekai = Category.create(name: 'Isekai', private: false, category_id: my_anime.id)
 
-my_peliculas_terror = Category.create(name: 'Terror', private: false, category_id: my_peliculas.id)
+my_peliculas_ficcion = Category.create(name: 'Ficcion', private: false, category_id: my_peliculas.id)
 my_peliculas_comedia = Category.create(name: 'Comedia', private: false, category_id: my_peliculas.id)
 
 20.times do

@@ -1,10 +1,12 @@
 <div class="container">
     <h2 class="text-center">Dashboard</h2><hr> 
-    <%= link_to 'All Categories', categories_path %><hr>
+    <%= link_to 'All Bookmarks', bookmarks_path %><hr>
     <div>
     <h2>Marcadores</h2>
     <%= pie_chart Bookmark.group(:name).count %>
     </div>
     <h2>Categorias</h2>
     <%= pie_chart Category.group(:name).count %>
+    <h2>Tipos</h2>
+    <%= pie_chart Type.group(:name).count %>
 </div>
