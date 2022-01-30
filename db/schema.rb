@@ -15,21 +15,21 @@ ActiveRecord::Schema.define(version: 2022_01_30_162051) do
   create_table "bookmarks", force: :cascade do |t|
     t.string "name"
     t.string "url"
+    t.integer "type_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_bookmarks_on_category_id"
+    t.index ["type_id"], name: "index_bookmarks_on_type_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.boolean "private"
-    t.integer "type_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_on_category_id"
-    t.index ["type_id"], name: "index_categories_on_type_id"
   end
 
   create_table "types", force: :cascade do |t|

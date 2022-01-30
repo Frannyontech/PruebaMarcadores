@@ -4,6 +4,8 @@ class BookmarksController < ApplicationController
   # GET /bookmarks or /bookmarks.json
   def index
     @bookmarks = Bookmark.all
+    @bookmark = Bookmark.new
+    @bookmarks = Bookmark.all.order(name: :desc)
   end
 
   # GET /bookmarks/1 or /bookmarks/1.json
@@ -15,6 +17,10 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
+  def bookmarks_category
+    @bookmarks = Bookmark.where(category: category_params)
+    render json: @bookmarks.as_json(include: :category)
+  end
   # GET /bookmarks/1/edit
   def edit
   end
@@ -27,9 +33,11 @@ class BookmarksController < ApplicationController
       if @bookmark.save
         format.html { redirect_to bookmark_url(@bookmark), notice: "Bookmark was successfully created." }
         format.json { render :show, status: :created, location: @bookmark }
+        format.js {}
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -65,6 +73,10 @@ class BookmarksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bookmark_params
-      params.require(:bookmark).permit(:name, :url, :category_id)
+      params.require(:bookmark).permit(:name, :url, :type_id, :category_id)
+    end
+
+    def category_params
+      params.require(:category)
     end
 end

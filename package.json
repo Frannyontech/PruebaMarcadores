@@ -2,6 +2,8 @@
   "name": "Prueba_Bookmarks",
   "private": true,
   "dependencies": {
+    "bootstrap": "^5.1.3",
+    "chartkick": "^4.1.1",
     "jquery": "^3.6.0"
   }
 }

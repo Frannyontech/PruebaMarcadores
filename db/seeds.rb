@@ -12,8 +12,8 @@ Category.destroy_all
 Bookmark.destroy_all
 
 
-['video', 'articulo', 'paper', 'red social', 'foto'].each do |v|
-    Type.create(name: v)
+['video', 'articulo', 'paper', 'red social', 'foto'].each do |k|
+    Type.create(name: k)
 end
 
 #categories
@@ -29,6 +29,7 @@ my_peliculas_comedia = Category.create(name: 'Comedia', private: false, category
 20.times do
     Bookmark.create(
            url: Faker::Internet.url,
+           type_id: rand(1..5),
            category_id: rand(1..12)
     )
 end
