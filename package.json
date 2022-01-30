@@ -1,0 +1,7 @@
+{
+  "name": "Prueba_Bookmarks",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
