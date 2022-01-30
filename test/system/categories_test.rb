@@ -17,7 +17,6 @@ class CategoriesTest < ApplicationSystemTestCase
     fill_in "Category", with: @category.category_id
     fill_in "Name", with: @category.name
     check "Private" if @category.private
-    fill_in "Type", with: @category.type_id
     click_on "Create Category"
 
     assert_text "Category was successfully created"
@@ -31,7 +30,6 @@ class CategoriesTest < ApplicationSystemTestCase
     fill_in "Category", with: @category.category_id
     fill_in "Name", with: @category.name
     check "Private" if @category.private
-    fill_in "Type", with: @category.type_id
     click_on "Update Category"
 
     assert_text "Category was successfully updated"

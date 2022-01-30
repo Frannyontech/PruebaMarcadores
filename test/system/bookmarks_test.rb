@@ -15,6 +15,7 @@ class BookmarksTest < ApplicationSystemTestCase
     click_on "New Bookmark"
 
     fill_in "Category", with: @bookmark.category_id
+    fill_in "Type", with: @bookmark.type_id
     fill_in "Name", with: @bookmark.name
     fill_in "Url", with: @bookmark.url
     click_on "Create Bookmark"
@@ -28,6 +29,7 @@ class BookmarksTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Category", with: @bookmark.category_id
+    fill_in "Type", with: @bookmark.type_id
     fill_in "Name", with: @bookmark.name
     fill_in "Url", with: @bookmark.url
     click_on "Update Bookmark"

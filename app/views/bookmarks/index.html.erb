@@ -1,10 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bookmarks</h1>
+<h1 class="text-center">Bookmarks</h1>
 
-<%= render 'form', bookmark: @bookmark %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <%= render 'form', bookmark: @bookmark %>
+    </div>
+  </div>
+</div>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
