@@ -58,6 +58,11 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def api
+    @category = Category.find(params[:id])
+    render json: @category.to_json(include: :categories)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category

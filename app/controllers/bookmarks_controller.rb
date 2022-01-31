@@ -23,6 +23,9 @@ class BookmarksController < ApplicationController
   end
   # GET /bookmarks/1/edit
   def edit
+    @bookmark = Bookmark.find(params[:id])
+    @types = Types.all
+    @categories = Category.all
   end
 
   # POST /bookmarks or /bookmarks.json
@@ -31,13 +34,11 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to bookmark_url(@bookmark), notice: "Bookmark was successfully created." }
-        format.json { render :show, status: :created, location: @bookmark }
+        
         format.js {}
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
-        format.js {}
+        format.html { redirect_to rooth_path, alert: "!!" }
+        
       end
     end
   end
@@ -57,11 +58,15 @@ class BookmarksController < ApplicationController
 
   # DELETE /bookmarks/1 or /bookmarks/1.json
   def destroy
-    @bookmark.destroy
+    @bookmark = Bookmark.find(bookmark_params)
 
     respond_to do |format|
-      format.html { redirect_to bookmarks_url, notice: "Bookmark was successfully destroyed." }
-      format.json { head :no_content }
+      if @bookmark.destroy
+        
+        format.js {}
+      else
+        format.html { redirect_to rooth_path, alert: "!!" }
+      end
     end
   end
 
