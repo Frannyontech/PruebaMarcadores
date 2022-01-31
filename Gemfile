@@ -65,8 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'chartkick'
 gem 'jquery-rails'
 gem 'groupdate', '~> 5.2', '>= 5.2.2'
-gem 'rails-erd', '~> 1.6', '>= 1.6.1'
 
 # 30/01/2022
 gem 'faker'
-gem 'rails-erd', '~> 1.6', '>= 1.6.1'
+gem 'rails-erd', group: :development
