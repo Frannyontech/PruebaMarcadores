@@ -24,7 +24,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
-    @types = Types.all
+    @types = Type.all
     @categories = Category.all
   end
 
